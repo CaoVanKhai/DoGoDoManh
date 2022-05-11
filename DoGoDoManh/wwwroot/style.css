@@ -1,0 +1,328 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+.bg-success {
+    background-color: #3fa97e !important;
+}
+ul {
+    list-style: none;
+}
+.required {
+  color: red;
+}
+label {
+  padding-top: 15px;
+}
+.new-users,
+.registered-users {
+  background-color: rgba(245, 244, 244, 0.664);
+  height: 650px;
+  padding: 30px;
+}
+.new-users button {
+  font-family: "Roboto", sans-serif;
+  border: 1px #ddd solid;
+  background: #fff;
+  padding: 5px 12px;
+}
+
+.registered-users input {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  padding: 10px;
+  width: 100%;
+  margin-top: 5px;
+  outline: none;
+  color: #aaa;
+}
+.registered-users button {
+  font-family: "Roboto", sans-serif;
+  border: 1px #ddd solid;
+  background: #fff;
+  padding: 5px 12px;
+}
+#RecoverPassword {
+  color: black;
+}
+a {
+  color: black;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+.menu-cart {
+  position: relative;
+}
+.product-number {
+  position: absolute;
+  border: 3px solid #fff;
+  background-color: #ee4d2d;
+  border-radius: 10px;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  top: -6px;
+  right: -12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.menu-cart a i {
+  color: #ee4d2d;
+  font-size: 36px;
+}
+.nav-item {
+  min-width: 100px;
+}
+.nav-item a {
+  color: #fff !important;
+}
+.nav-item a:hover {
+  opacity: 0.8;
+}
+.dropdown-menu {
+    background-color: #3fa97e;
+}
+.user-avt img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+}
+.new-price {
+  font-size: 24px;
+  font-weight: 600;
+  color: red;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #ccc;
+}
+.footer-item {
+  text-decoration: none;
+  color: #000;
+}
+.footer-item:hover {
+  text-decoration: none;
+  color: #333;
+}
+
+thead {
+  background-color: rgb(236, 236, 236);
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+.cart .page-title {
+  margin: 20px 0;
+}
+tfoot {
+  background-color: rgb(236, 236, 236);
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  height: 80px;
+}
+button {
+  display: inline-block;
+  border: 0;
+  background: #fff;
+  padding: 8px 12px;
+  font-size: 11px;
+  text-align: center;
+  white-space: nowrap;
+  color: #333;
+  font-weight: 400;
+  transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  vertical-align: top;
+  cursor: pointer;
+  overflow: visible;
+  width: auto;
+  outline: none;
+  -webkit-border-fit: lines;
+  text-transform: uppercase;
+  border: 1px solid #ddd;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+.required {
+    color: red;
+}
+
+label {
+    padding-top: 15px;
+}
+
+.new-users,
+.registered-users {
+    background-color: rgba(245, 244, 244, 0.664);
+    height: 650px;
+    padding: 30px;
+}
+
+    .new-users button {
+        font-family: "Roboto", sans-serif;
+        border: 1px #ddd solid;
+        background: #fff;
+        padding: 5px 12px;
+    }
+
+    .registered-users input {
+        background: #fff;
+        border: 1px solid #f0f0f0;
+        padding: 10px;
+        width: 100%;
+        margin-top: 5px;
+        outline: none;
+        color: #aaa;
+    }
+
+    .registered-users button {
+        font-family: "Roboto", sans-serif;
+        border: 1px #ddd solid;
+        background: #fff;
+        padding: 5px 12px;
+    }
+
+#RecoverPassword {
+    color: black;
+}
+
+a {
+    color: black;
+}
+
+    a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+.menu-cart {
+    position: relative;
+}
+
+.product-number {
+    position: absolute;
+    border: 3px solid #fff;
+    background-color: #ee4d2d;
+    border-radius: 10px;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    top: -6px;
+    right: -12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.menu-cart a i {
+    color: #ee4d2d;
+    font-size: 36px;
+}
+
+.nav-item {
+    min-width: 100px;
+}
+
+    .nav-item a {
+        color: #fff !important;
+    }
+
+        .nav-item a:hover {
+            opacity: 0.8;
+        }
+
+.dropdown-menu {
+    background-color: #3fa97e;
+}
+
+.user-avt img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+}
+
+.new-price {
+    font-size: 24px;
+    font-weight: 600;
+    color: red;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.footer-item {
+    text-decoration: none;
+    color: #000;
+}
+
+    .footer-item:hover {
+        text-decoration: none;
+        color: #333;
+    }
+
+thead {
+    background-color: rgb(236, 236, 236);
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.cart .page-title {
+    margin: 20px 0;
+}
+
+tfoot {
+    background-color: rgb(236, 236, 236);
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    height: 80px;
+}
+
+button {
+    display: inline-block;
+    border: 0;
+    background: #fff;
+    padding: 8px 12px;
+    font-size: 11px;
+    text-align: center;
+    white-space: nowrap;
+    color: #333;
+    font-weight: 400;
+    transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    vertical-align: top;
+    cursor: pointer;
+    overflow: visible;
+    width: auto;
+    outline: none;
+    -webkit-border-fit: lines;
+    text-transform: uppercase;
+    border: 1px solid #ddd;
+}

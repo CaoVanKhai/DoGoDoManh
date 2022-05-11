@@ -1,0 +1,58 @@
+﻿@model DoGoDoManh.Models.User
+@{
+    ViewBag.Title = "Login";
+}
+<section class="container-fluid">
+    <div class="main container">
+        <div class="account-login">
+            <div class="page-title">
+                <h2 class="m-4">Đăng nhập</h2>
+            </div>
+            <div class="row">
+                <div class="col col-6">
+                    <div class="new-users">
+                        <strong>Đăng ký</strong>
+                        <div class="content">
+                            <p>
+                                Tạo tài khoản để quản lý đơn hàng, và các thông tin thanh
+                                toán, gửi hàng một cách đơn giản hơn.
+                            </p>
+                            <div class="buttons-set">
+                                <button class="button create-account">
+                                    <span>@Html.ActionLink("Tạo tài khoản", "register", "Home")</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="registered-users">
+                        <div class="content">
+                            <strong>Đăng nhập</strong>
+                            <p>Nếu bạn có tài khoản, hãy đăng nhập dưới đây.</p>
+                            @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputEmailAddress">Email</label><br />
+                                    @Html.TextBoxFor(m => m.Email, "", new { @class = "formcontrol", @placeholder = "Nhập email" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="small mb-1" for="inputPassword">Mật khẩu</label><br />
+                                    @Html.PasswordFor(m => m.Password, new { @class = "formcontrol", @placeholder = "Nhập mật khẩu" })
+                                </div>
+                                <div class="form-group d-flex flex-column align-items-center justify-content-between mt-4 mb-0">
+                                    <input type="submit" name="submit" class="btn btn-primary" value="Đăng nhập" />
+                                    <div class="text-primary mt-3">@Html.ActionLink("Quên mật khẩu?", "QuenMatKhau", "Home")</div>
+                                </div>
+
+                            }
+                            <p style="color: red">@ViewBag.error</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

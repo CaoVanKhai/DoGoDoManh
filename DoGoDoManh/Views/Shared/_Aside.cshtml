@@ -1,0 +1,14 @@
+﻿
+@model  IEnumerable<DoGoDoManh.Models.Category>
+
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <h5>DANH MỤC SẢN PHẨM</h5>
+    @foreach (var item in Model)
+    {
+        <div class="nav-link" style="cursor: pointer;" role="tab" aria-controls="v-pills-home" aria-selected="true">
+            <a href="@Url.Action("Index","Home", new {id = item.CategoryId })">
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </a>
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model DoGoDoManh.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper-account-info">
+    <div class="container">
+        <div class="title">THÔNG TIN TÀI KHOẢN</div>
+        <div class="card-body">
+            <div class="form-group">
+                <label style="width: 200px; font-weight: 600;" for="hoten">Họ:</label>
+
+                @Session["Ho"]
+            </div>
+            <div class="form-group">
+                <label style="width: 200px; font-weight: 600;" for="hoten">Tên:</label>
+                @Session["Ten"]
+            </div>
+            <div class="form-group">
+                <label style="width: 200px; font-weight: 600;" for="hoten">Email:</label>
+                @Session["Email"]
+            </div>
+            <div class="form-group">
+                <label style="width: 200px; font-weight: 600;" s for="dienthoai">Điện thoại:</label>
+                @Session["DienThoai"]
+            </div>
+
+            <div class="form-group">
+                <label style="width: 200px; font-weight: 600;" for="diachi">Thành phố:</label>
+                @Session["ThanhPho"]
+            </div>
+            <div class="form-group">
+                <label style="width: 200px; font-weight: 600;" for="diachi">Quận/huyện:</label>
+                @Session["Tinh"]
+            </div>
+            <div class="form-group">
+                <label style="width: 200px; font-weight: 600;" for="diachi">Địa chỉ:</label>
+                @Session["DiaChi"]
+            </div>
+        </div>
+        <button>
+            @Html.ActionLink("Chỉnh sửa", "EditAccount", new { id = Session["idUser"] })
+        </button>
+
+        <button>
+            @Html.ActionLink("Đổi mật khẩu", "EditPassword", new { id = Session["idUser"] })
+        </button>
+    </div>
+</div>
+

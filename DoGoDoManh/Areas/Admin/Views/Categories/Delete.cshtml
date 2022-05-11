@@ -1,0 +1,64 @@
+﻿@model DoGoDoManh.Areas.Admin.Data.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="content" style="margin-bottom: 210px">
+    <div>
+        <span style="font-weight: bold;font-size: 30px;">QUẢN LÝ DANH MỤC</span>
+        <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Categories")">Quản lý danh mục</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Xoá danh mục</li>
+                </ol>
+            </nav>
+        </nav>
+    </div>
+    <br />
+    <div style="width:500px" class="m-auto">
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.CategoryName)
+            @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="mt-4 form-group">
+            <button type="submit" class="btn btn-primary m-auto" data-toggle="modal" data-target="#modal-delete-account">Xoá</button>
+            <div class="modal" tabindex="-1" role="dialog" id="modal-delete-account">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">XOÁ DANH MỤC</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bạn có chắc chắn muốn xoá danh mục này?</p>
+                        </div>
+                        <div class="modal-footer">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <button type="submit" class="btn btn-primary">Xoá</button>
+                            }
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ bỏ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="@Url.Action("Index", "Categories")" class="btn btn-dark m-auto">Quay lại</a>
+        </div>
+    </div>
+    @if (ViewBag.Error != null)
+    {
+        <br />
+        <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+
+    }
+</div>

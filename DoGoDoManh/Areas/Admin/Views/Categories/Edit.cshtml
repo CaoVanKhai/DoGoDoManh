@@ -1,0 +1,46 @@
+﻿@model DoGoDoManh.Areas.Admin.Data.Category
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content" style="margin-bottom:131px">
+    <div>
+        <span style="font-weight: bold;font-size: 30px;">QUẢN LÝ DANH MỤC</span>
+        <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Categories")">Quản lý danh mục</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sửa danh mục</li>
+                </ol>
+            </nav>
+        </nav>
+    </div>
+    <br />
+    <div style="width:500px" class="m-auto">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <label for="productName">Tên danh mục cũ</label>
+                <input type="text" class="form-control" id="productName" value="@Model.CategoryName" disabled>
+            </div>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.CategoryId)
+
+            <div class="form-group">
+                <label for="catalogName">Tên danh mục mới</label>
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @id = "catalogName", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary m-auto">Cập nhật danh mục</button>
+                <a href="@Url.Action("Index", "Categories")" class="btn btn-dark m-auto">Quay lại</a>
+            </div>
+        }
+    </div>
+</div>

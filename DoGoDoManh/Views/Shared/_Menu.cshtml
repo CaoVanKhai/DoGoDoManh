@@ -1,0 +1,65 @@
+﻿@model  IEnumerable<DoGoDoManh.Models.Category>
+<div class="container-fluid">
+    <div class="row bg-success">
+        <div class="container">
+            <div class="row">
+                <div class="col col-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="nav nav-pills">
+                                <li class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                                    @*<div class="nav-link" aria-current="page">@Html.ActionLink("Trang chủ", "Index", "Home")</div>*@
+                                    <a href="@Url.Action("Index","Home")" style="color: #fff">
+                                        Trang chủ
+                                    </a>
+                                </li>
+
+                                @foreach (var item in Model)
+                                {
+                                    <li class="nav-link" style="cursor: pointer;" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                        <a href="@Url.Action("Index","Home", new {id = item.CategoryId })" style="color: #fff">
+                                            @Html.DisplayFor(modelItem => item.CategoryName)
+                                        </a>
+                                    </li>
+                                }
+
+
+                                @*<li class="nav-item">
+                                        <div class="nav-link">
+                                            @Html.ActionLink("Sản phẩm", "Index", "Home")
+                                        </div>
+                                    </li>
+
+
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            @Html.ActionLink("Phòng khách", "Index", "Home")
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            @Html.ActionLink("Phòng ngủ", "Index", "Home")
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="nav-link">
+                                            @Html.ActionLink("Phòng bếp", "Index", "Home")
+                                        </div>
+                                    </li>*@
+                                <li>
+                                    <div class="nav-link-menu">@Html.ActionLink("Blog", "Index", "Home")</div>
+                                </li>
+                                <li>
+                                    <div class="nav-link-menu">@Html.ActionLink("Giới thiệu", "Index", "Home")</div>
+                                </li>
+                                <li>
+                                    <div class="nav-link-menu">@Html.ActionLink("Tuyển cộng tác viên", "Index", "Home")</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

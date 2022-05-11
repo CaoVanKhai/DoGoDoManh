@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/wwwroot/bootstrap-4.6.0-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/wwwroot/fontawesome-free-5.15.4-web/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/wwwroot/slick.css" />
+    <link rel="stylesheet" href="~/wwwroot/main.css" />
+    <link rel="stylesheet" href="~/wwwroot/style.css" />
+    <title>Đồ gỗ đỗ mạnh</title>
+    <style></style>
+</head>
+<body>
+    <!-- Phần header -->
+    <header>
+        <!-- Phần header của trang -->
+        <div class="container">
+            <div class="row">
+                <div class="col col-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">
+                            <img src="~/wwwroot/imgs/logo.png" alt="Logo" />
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 80px">
+                            @*<ul class="navbar-nav mr-auto">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Danh mục
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="DanhMuc.html">Đồ thờ</a>
+                                            <a class="dropdown-item" href="DanhMuc.html">Tủ</a>
+                                            <a class="dropdown-item" href="DanhMuc.html">Bàn ăn</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Tất cả</a>
+                                        </div>
+                                    </li>
+                                </ul>*@
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                            {
+                                <form style="margin-right: 20px; display: flex !important">
+                                    <div class="d-flex">
+                                        <input class="form-control"
+                                               name="seachString"
+                                               type="search"
+                                               placeholder="Bạn muốn tìm gì..."
+                                               aria-label="Search"
+                                               style="width: 400px" />
+                                        <button class="mr-5 btn btn-outline-success my-2 my-sm-0"
+                                                type="submit">
+                                            Tìm kiếm
+                                        </button>
+                                    </div>
+
+                                </form>
+                            }
+                            <div class="menu-cart mr-5">
+                                <i class="fas fa-shopping-cart"></i>
+                                <div class="product-number">3</div>
+                                @Html.ActionLink("Giỏ hàng", "Cart", "Home")
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="user-avt">
+                                        <img src="~/wwwroot/imgs/user.png" alt="user-avatar" />
+                                    </div>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <div class="dropdown-item @(Session["idUser"] != null ? "hide" : "show")">@Html.ActionLink("Đăng nhập", "Login", "Home")</div>
+                                    <div class="dropdown-item @(Session["idUser"] != null ? "hide" : "show")">@Html.ActionLink("Đăng ký", "register", "Home")</div>
+                                    <div class="dropdown-item @(Session["idUser"] != null ? "show" : "hide")">@Html.ActionLink("Đăng xuất", "Logout", "Home")</div>
+                                    <div class="dropdown-item @(Session["idUser"] != null ? "show" : "hide")">@Html.ActionLink("Thông tin tài khoản", "InfoAccount", "Home")</div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần menu -->
+        @{
+            Html.RenderAction("_Menu", "Home");
+        }
+    </header>
+
+    <!-- Phần main -->
+    @RenderBody();
+
+    <!-- Phần footer -->
+    <footer>
+        @{
+            Html.RenderPartial("_Footer");
+        }
+    </footer>
+
+    <script src="~/wwwroot/bootstrap-4.6.0-dist/js/jquery-3.6.0.min.js"></script>
+    <script src="~/wwwroot/bootstrap-4.6.0-dist/js/bootstrap.min.js"></script>
+    <script src="~/wwwroot/bootstrap-4.6.0-dist/js/bootstrap.bundle.js"></script>
+    <script src="~/wwwroot/slick.js"></script>
+    <script src="~/wwwroot/main.js"></script>
+</body>
+</html>

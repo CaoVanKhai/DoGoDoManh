@@ -1,0 +1,89 @@
+﻿@*@model  IEnumerable<DoGoDoManh.Models.Product>*@
+@model PagedList.IPagedList<DoGoDoManh.Models.Product>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<div class="main">
+    <!-- Slider -->
+    @{
+        Html.RenderPartial("_Slider");
+    }
+    <!-- Content -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-3">
+                @{
+                    Html.RenderAction("_Aside", "Home");
+                }
+            </div>
+            <div class="col-9 main-content wrapper-category">
+                @if (Convert.ToInt32(Session["currentCategoryId"]) == 0)
+                {
+                    <h5>Tất cả sản phẩm</h5>
+                }
+                else
+                {
+                    <h5>@Session["currentCategoryName"]</h5>
+                }
+                <div class="options">
+                    <div class="layout-select">
+                        <button class="button-grid">
+                            <img src="" alt="" />
+                            Lưới
+                        </button>
+                        <button class="button-list">Danh sách</button>
+                    </div>
+                    @*<div class="quantity">Có @Model.ToArray().Length sản phẩm</div>*@
+                    @*<div class="sort">
+                            <span>Sắp xếp: </span>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Mặc định</option>
+                                <option value="1">Giá giảm dần</option>
+                                <option value="2">Giá tăng dần</option>
+                                <option value="3">Từ A-Z</option>
+                                <option value="4">Từ Z-A</option>
+                            </select>
+                        </div>*@
+                </div>
+
+                <div class="row mt-5">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4 mb-3 item-prod">
+                            <div class="product-card">
+                                <div class="product-img">
+                                    @{
+                                        string ImagePath = "~/wwwroot/imgs/" + item.Image;
+                                    }
+                                    <img src="@Url.Content(ImagePath)" alt="" width="250" height="250" />
+                                </div>
+                                <div class="bottom">
+                                    <div class="product-name">
+                                        <a href="@Url.Action("Product","Home", new { id=item.ProductId })">
+                                            @Html.DisplayFor(modelItem => item.ProductName)
+                                        </a>
+
+                                    </div>
+                                    <div class="bottom-price">
+                                        <div class="left">
+                                            <div class="price">@Html.DisplayFor(modelItem => item.CurrentPrice)đ</div>
+                                            <div class="old-price">@Html.DisplayFor(modelItem => item.OldPrice)đ</div>
+                                        </div>
+                                        <div class="right">
+                                            <a href="@Url.Action( "Cart", "Home", new { id=item.ProductId })">
+                                                Giỏ hàng
+                                            </a>
+                                            @*@Html.ActionLink("Giỏ hàng", "Cart", "Home", new { id = item.ProductId })*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                @Html.PagedListPager(Model, page => Url.Action("Index", "Home", new { page }))
+            </div>
+
+        </div>
+    </div>
+</div>

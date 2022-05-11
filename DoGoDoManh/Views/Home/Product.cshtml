@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+}
+@model DoGoDoManh.Models.Product
+
+<div class="wrapper-detail-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="grid-slider">
+                    <div class="slider slider-for">
+                        @{
+                            string ImagePath = "~/wwwroot/imgs/" + Model.Image;
+                        }
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            <div class="box-img">
+                                <img src="@Url.Content(ImagePath)" alt="" />
+                            </div>
+                        }
+
+                    </div>
+                    <div class="slider slider-nav">
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            <div class="box-img">
+                                <img src="@Url.Content(ImagePath)" alt="" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <h1 class="title">
+                    @Html.DisplayFor(model => model.ProductName)
+                </h1>
+                <div class="price-line">
+                    <div class="old-price">@Html.DisplayFor(model => model.OldPrice)đ</div>
+                    <div class="price">@Html.DisplayFor(model => model.CurrentPrice)đ</div>
+                    <div class="status @(Model.InventQuantity > 0 ? "show": "hide")">Còn hàng</div>
+                    <div class="status @(Model.InventQuantity > 0 ? "hide": "show")">Hêt hàng</div>
+                </div>
+                <div class="add-to-cart">
+                    <form id="add-to-cart-form">
+                        <input type="hidden" name="variantId" value="54282638" />
+
+                        <label for="qty">Số lượng</label>
+                        <div class="pull-left">
+                            <div class="custom pull-left">
+                                <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty > 1 ) result.value--;return false;"
+                                        class="reduced items-count"
+                                        type="button">
+                                    <i class="fa fa-minus">&nbsp;</i>
+                                </button>
+                                @*@Html.TextBox("quantity", "", new { @type = "number", @value = 1, @min = 1, @maxlength = 12, @id = "qty", @class= "input-text qty" })*@
+                                <input type="number"
+                                       class="input-text qty"
+                                       title="Qty"
+                                       value="1"
+                                       min="1"
+                                       maxlength="12"
+                                       id="qty"
+                                       name="quantity" />
+                                <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
+                                        class="increase items-count"
+                                        type="button">
+                                    <i class="fa fa-plus">&nbsp;</i>
+                                </button>
+                            </div>
+                        </div>
+                        @*@Html.EditorFor(model => model.InventQuantity)*@
+
+                        <div class="pull-left">
+                            <button class="button btn-cart add_to_cart"
+                                    title="Thêm vào giỏ hàng">
+                                <span><i class="icon-basket"></i> @Html.ActionLink("Mua ngay", "Cart", "Home", new { id = Model.ProductId }) </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="
+                product-right
+                wow
+                bounceInRight
+                animated animated
+              "
+                     style="visibility: visible">
+                    <div class="item-service d-flex align-items-center">
+                        <div class="item-service-img">
+                            <img alt="Đồ gỗ Đỗ Mạnh"
+                                 src="//bizweb.dktcdn.net/100/110/614/themes/612928/assets/i-prod-ship.png?1581001511499" />
+                        </div>
+                        <p class="m-0 pl-3">Miễn phí vận chuyển</p>
+                    </div>
+                    <div class="item-service d-flex align-items-center">
+                        <div class="item-service-img">
+                            <img alt="Đồ gỗ Đỗ Mạnh"
+                                 src="//bizweb.dktcdn.net/100/110/614/themes/612928/assets/i-prod-cart.png?1581001511499" />
+                        </div>
+                        <p class="m-0 pl-3">Giao hàng ngay (Tại Hà Nội &amp; TP. Hồ Chí Minh)</p>
+                    </div>
+                    <div class="item-service d-flex align-items-center">
+                        <div class="item-service-img">
+                            <img alt="Đồ gỗ Đỗ Mạnh"
+                                 src="//bizweb.dktcdn.net/100/110/614/themes/612928/assets/i-prod-exchange.png?1581001511499" />
+                        </div>
+                        <p class="m-0 pl-3">Đổi trả hàng trong 3 ngày thủ tục đơn giản</p>
+                    </div>
+                    <div class="item-service d-flex align-items-center">
+                        <div class="item-service-img">
+                            <img alt="Đồ gỗ Đỗ Mạnh"
+                                 src="//bizweb.dktcdn.net/100/110/614/themes/612928/assets/settings-tools.png?1581001511499" />
+                        </div>
+                        <p class="m-0 pl-3">Chính sách bảo hành (Tại Hà Nội &amp; TP. Hồ Chí Minh)</p>
+                    </div>
+                    <div class="item-service d-flex
+				align-items-center"
+                         style="border-bottom: 1px solid #e1e1e1">
+                        <div class="item-service-img">
+                            <img alt="Đồ gỗ Đỗ Mạnh"
+                                 src="//bizweb.dktcdn.net/100/110/614/themes/612928/assets/tag.png?1581001511499" />
+                        </div>
+                        <p style="margin-top: 10px; padding-left: 10px;">Chính sách Combo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <div class="title">Thông tin sản phẩm</div>
+            <pre>
+@Html.DisplayFor(model => model.Description)
+            </pre>
+        </div>
+    </div>
+</div>
+

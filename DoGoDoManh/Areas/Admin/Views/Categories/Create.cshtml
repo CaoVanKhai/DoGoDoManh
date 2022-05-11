@@ -1,0 +1,46 @@
+﻿@model DoGoDoManh.Areas.Admin.Data.Category
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content" style="margin-bottom: 217px">
+    <div>
+        <span style="font-weight: bold;font-size: 30px;">QUẢN LÝ DANH MỤC</span>
+        <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Categorys")">Quản lý danh mục</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Thêm danh mục</li>
+                </ol>
+            </nav>
+        </nav>
+    </div>
+    <br />
+    <div style="width:500px" class="m-auto">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label" })
+
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary m-auto">Thêm mới danh mục</button>
+                <a href="@Url.Action("Index", "Categories")" class="btn btn-dark m-auto">Quay lại</a>
+            </div>
+        }
+    </div>
+    @if (ViewBag.Error != null)
+    {
+        <br />
+        <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+    }
+</div>
+

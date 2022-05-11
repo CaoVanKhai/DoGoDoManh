@@ -1,0 +1,53 @@
+﻿@model DoGoDoManh.Areas.Admin.Data.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div>
+        <span style="font-weight: bold;font-size: 30px;">QUẢN LÝ SẢN PHẨM</span>
+        <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Products")">Quản lý sản phẩm</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Chi tiết sản phẩm</li>
+                </ol>
+            </nav>
+        </nav>
+    </div>
+    <br />
+    <div style="width:500px" class="m-auto">
+        <div class="form-group">
+            <label for="productName">Tên sản phẩm</label>
+            <input type="email" class="form-control" id="productName" value="@Model.ProductName" disabled>
+        </div>
+        <div class="form-group">
+            <label for="productOldPrice">Giá cũ</label>
+            <input type="text" class="form-control" id="productOldPrice" value="@Model.OldPrice" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="productNewPrice">Giá mới</label>
+            <input type="text" class="form-control" id="productNewPrice" value="@Model.CurrentPrice" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="productQuantity">Số lượng tồn</label>
+            <input type="text" class="form-control" id="productQuantity" value="@Model.InventQuantity" disabled>
+        </div>
+
+        <div class="form-group">
+            <label for="productDesc">Mô tả</label>
+            <textarea class="form-control" id="productDesc" disabled>@Model.Description</textarea>
+        </div>
+        <div class="form-group">
+            <label>Ảnh sản phẩm</label>
+            <div>
+                <img src="~/wwwroot/imgs/@Model.Image" width="100" height="100" class="img-thumbnail" alt="Sản phẩm 1">
+            </div>
+        </div>
+        <a href="@Url.Action("Index","Products")" class="btn btn-dark m-auto">Quay lại</a>
+    </div>
+</div>

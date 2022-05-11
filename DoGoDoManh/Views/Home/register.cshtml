@@ -1,0 +1,82 @@
+﻿@model DoGoDoManh.Models.DangKyTV
+@{
+    ViewBag.Title = "register";
+}
+@using (Html.BeginForm("register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <section class="container">
+        <div class="main container">
+            <div class="account-login">
+                <div class="page-title">
+                    <h2 class="text-center m-4">Đăng ký</h2>
+                </div>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <div class="registered-users">
+                            <div class="content">
+                                <form>
+                                    <input name="FormType"
+                                           type="hidden"
+                                           value="customer_register" />
+                                    <input name="utf8" type="hidden" value="true" /><input type="hidden"
+                                                                                           id="Token-83b9903bad734e9b845f5e54fcb6e94d" />
+                                    <strong>Đăng ký</strong>
+                                    <p>
+                                        Nếu bạn chưa có tài khoản hãy điền theo mẫu dưới đây để
+                                        đăng ký.
+                                    </p>
+
+                                    <ul class="form-list">
+                                        <li>
+                                            <div class="customer-name">
+                                                <div class="input-box name-firstname">
+                                                    <label for="firstname">
+                                                        Tên <span class="required">*</span>
+                                                    </label>
+                                                    <br />
+                                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="input-box name-lastname">
+                                                    <label for="lastname">
+                                                        Họ <span class="required">*</span>
+                                                    </label>
+                                                    <br />
+                                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <label for="email">Email<span class="required">*</span></label>
+                                            <br />
+                                            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                        </li>
+                                        <li>
+                                            <label for="pass">Mật khẩu<span class="required">*</span></label>
+                                            <br />
+                                            @Html.EditorFor(model => model.password, new { htmlAttributes = new { @class = "form-control", type = "password" } })
+                                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                        </li>
+                                    </ul>
+                                    <p class="required">* Bắt buộc</p>
+                                    <div class="buttons-set">
+                                        <button id="send2" type="submit" class="button login">
+                                            <span>Đăng ký</span>
+                                        </button>
+
+                                        hoặc @Html.ActionLink("Đăng nhập", "Login", "Home")
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
